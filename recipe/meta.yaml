@@ -28,8 +28,10 @@ outputs:
         - cmake
         - make  # [unix]
       host:
+        - gmattensor
         - xtensor
       run:
+        - gmattensor
         - xtensor
 
     test:
@@ -55,6 +57,7 @@ outputs:
         - cmake
         - ninja
       host:
+        - gmattensor
         - numpy *
         - pip
         - pybind11
