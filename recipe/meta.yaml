@@ -1,6 +1,6 @@
 {% set org = "tdegeus" %}
 {% set name = "GMatElastic" %}
-{% set version = "0.2.2" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}-split
@@ -8,12 +8,10 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: eec1114c65124c479456856832eea409d30b2dbec9d7441ab1f8030b67c1d18f
+  sha256: d6024ae0fa99ea8256901bca673da0e265c2ab3894d4ef3b7407cf16efb6c884
 
 build:
-  number: 1
-  script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
-  skip: true  # [python_impl == 'pypy']
+  number: 0
 
 outputs:
 
@@ -21,6 +19,9 @@ outputs:
 
     script: install.sh  # [unix]
     script: install.bat  # [win]
+
+    build:
+      script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
 
     requirements:
       build:
@@ -47,6 +48,10 @@ outputs:
     script: install_python.sh  # [unix]
     script: install_python.bat  # [win]
 
+    build:
+      script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
+      skip: true  # [python_impl == 'pypy']
+
     requirements:
       build:
         - python                              # [build_platform != target_platform]
@@ -55,12 +60,14 @@ outputs:
         - setuptools_scm                      # [build_platform != target_platform]
         - {{ compiler('cxx') }}
         - cmake
+        - make  # [unix]
         - ninja
       host:
         - gmattensor
         - numpy *
         - pip
         - pybind11
+        - pybind11-abi
         - python
         - scikit-build
         - setuptools_scm
@@ -75,7 +82,7 @@ outputs:
         - {{ name }}
       commands:
         - pip check
-        - python -c "import {{ name }}; {{ name }}.version()"
+        - python -c "import {{ name }}; assert {{ name }}.version() == '{{ version }}'"
       requires:
         - pip
 
