@@ -11,7 +11,7 @@ source:
   sha256: d6024ae0fa99ea8256901bca673da0e265c2ab3894d4ef3b7407cf16efb6c884
 
 build:
-  number: 0
+  number: 1
 
 outputs:
 
@@ -29,10 +29,10 @@ outputs:
         - cmake
         - make  # [unix]
       host:
-        - gmattensor
+        - gmattensor <0.8.0
         - xtensor
       run:
-        - gmattensor
+        - gmattensor <0.8.0
         - xtensor
 
     test:
@@ -63,7 +63,7 @@ outputs:
         - make  # [unix]
         - ninja
       host:
-        - gmattensor
+        - gmattensor <0.8.0
         - numpy *
         - pip
         - pybind11
