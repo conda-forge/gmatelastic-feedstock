@@ -1,6 +1,6 @@
 {% set org = "tdegeus" %}
 {% set name = "GMatElastic" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}-split
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 27d4435c5f0913cc17fcb53efee863ccae66de968342751609fd4795c0af3b24
+  sha256: 2d4074ee13c20df8c72a8fd38921311a8f60b84ffe608b653abcf3589c738859
 
 build:
   number: 2
@@ -30,10 +30,10 @@ outputs:
         - make  # [unix]
       host:
         - gmattensor >=0.10.1
-        - xtensor
+        - xtensor >=0.24.2
       run:
         - gmattensor >=0.10.1
-        - xtensor
+        - xtensor >=0.24.2
 
     test:
       commands:
@@ -71,7 +71,7 @@ outputs:
         - python
         - scikit-build
         - setuptools_scm
-        - xtensor
+        - xtensor >=0.24.2
         - xtensor-python
       run:
         - python
