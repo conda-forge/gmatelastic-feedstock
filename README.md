@@ -7,13 +7,13 @@ Package license: MIT
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gmatelastic-feedstock/blob/main/LICENSE.txt)
 
-Summary: Linear elastic material definition.
+Summary: Linear elastic material model.
 
 Development: https://github.com/tdegeus/GMatElastic
 
 Documentation: https://tdegeus.github.io/GMatElastic
 
-Linear elastic material definition.
+Linear elastic material model.
 
 Current build status
 ====================
