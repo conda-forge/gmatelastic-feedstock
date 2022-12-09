@@ -1,6 +1,6 @@
 {% set org = "tdegeus" %}
 {% set name = "GMatElastic" %}
-{% set version = "0.5.2" %}
+{% set version = "0.5.3" %}
 
 package:
   name: {{ name|lower }}-split
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 1ffdd1461d974f8307bea46f8ab60756ae8ebfb3fb02ba4accff13d609417d8b
+  sha256: f749725f89e3978e56208cb584fce2b6f7c5dda592abc5a4a7a60fb4c8bbd276
 
 build:
-  number: 1
+  number: 0
 
 outputs:
 
